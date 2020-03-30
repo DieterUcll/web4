@@ -7,7 +7,7 @@ function openSocket() {
     webSocket = new WebSocket("ws://localhost:8081/reaction");
 
     webSocket.onopen = function (event) {
-        writeResponse("Connection open");
+        //writeResponse("Connection open");
     };
 
     webSocket.onmessage = function (event) {
@@ -15,7 +15,7 @@ function openSocket() {
     };
 
     webSocket.onclose = function (event) {
-        writeResponse("connection closed");
+        //writeResponse("connection closed");
     };
 }
 
@@ -25,9 +25,9 @@ function send() {
     var opinion = document.getElementById("opinionInput").value;
     var rating = document.getElementById("ratingInput").value;
     console.log(name + " thinks " + opinion + " gives it a " + rating);
-    webSocket.send(name);
-    webSocket.send(opinion);
-    webSocket.send(rating);
+    webSocket.send(name + " thinks " + opinion + ", gives it a "+ rating + " out of 10");
+    // webSocket.send(opinion);
+    // webSocket.send(rating);
 }
 
 function closeSocket() {
@@ -36,5 +36,5 @@ function closeSocket() {
 
 
 function writeResponse(String) {
-    reactions.innerHTML += "<br/>" + String;
+    reactions.innerHTML += "<br> - "+String;
 }

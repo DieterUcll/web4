@@ -17,25 +17,21 @@ public class ReactionServer {
 
     @OnOpen
     public void onOpen(Session session){
-        System.out.println(session.getId() + " has opened a connection");
-        sendMessageToAll("User " + session.getId() + " has connected");
-        try {
-            session.getBasicRemote().sendText("Connection Established");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+//        System.out.println(session.getId() + " has opened a connection");
+//        sendMessageToAll("User " + session.getId() + " has connected");
+        //            session.getBasicRemote().sendText("Connection Established");
         sessions.add(session);
     }
 
     @OnMessage
     public void onMessage(String message, Session session){
-        System.out.println("Message from " + session.getId() + ": " + message);
+//        System.out.println("Message from " + session.getId() + ": " + message);
         sendMessageToAll(message);
     }
 
     @OnClose
     public void onClose(Session session){
-        System.out.println("Chat " +session.getId()+" has ended");
+//        System.out.println("Chat " +session.getId()+" has ended");
         sessions.remove(session);
     }
 

@@ -53,7 +53,7 @@
         <input type="text" id="nameInput" name="name" value="elke">
         <input type="text" id="opinionInput" name="opinion" value="saai">
         <input type="number" min="1" max="10" id="ratingInput" name="rating" value="2">
-        <input type="submit" id="postComment" onclick="send()" value="Reageer">
+        <input type="button" id="postComment" onclick="send()" value="Reageer">
     </form>
 
 
