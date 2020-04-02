@@ -65,6 +65,6 @@ function addFriends() {
     console.log("id: " + friendId);
     changeStatusRequest.open("POST", "Controller?action=AddFriend&friendId=" + friendId, true);
     // changeStatusRequest.onreadystatechange = getData;
-    friendId.value = "";
+    friendId = " ";
     changeStatusRequest.send();
 }

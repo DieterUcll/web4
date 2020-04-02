@@ -34,7 +34,7 @@ public class Person {
 		setLastName(lastName);
 		setRole(role);
 		friends = new ArrayList<>();
-		setStatus("Online");
+		setStatus("Offline");
 	}
 
 	public Person(String userId, String password, String salt,
