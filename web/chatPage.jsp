@@ -46,8 +46,10 @@
         </p>
     </form>
 </main>
-<script type="text/javascript" src="js/pollingScript.js"></script>
+
 <script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/pollingScript.js"></script>
+<script type="text/javascript" src="js/deelopdracht3.js"></script>
 <jsp:include page="footer.jsp">
     <jsp:param name="title" value="Home"/>
 </jsp:include>

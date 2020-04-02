@@ -39,20 +39,20 @@ function getFriends() {
             let serverResponse = JSON.parse(getFriendsRequest.responseText);
             let tablebody = document.getElementById("friendsTable").lastChild;
 
-            if(copyOfServerResponse == null ||JSON.stringify(serverResponse) !== JSON.stringify(copyOfServerResponse)) {
+            if (copyOfServerResponse == null || JSON.stringify(serverResponse) !== JSON.stringify(copyOfServerResponse)) {
                 copyOfServerResponse = serverResponse;
                 $("#friendsTable > tbody").empty();
-            for (let i = 0; i < serverResponse.length; i++) {
+                for (let i = 0; i < serverResponse.length; i++) {
 
-                let tr = document.createElement("tr");
-                let td1 = document.createElement("td");
-                let td2 = document.createElement("td");
-                td1.innerHTML = serverResponse[i].firstName;
-                td2.innerHTML = serverResponse[i].status;
-                tr.appendChild(td1);
-                tr.appendChild(td2);
-                tablebody.appendChild(tr);
-            }
+                    let tr = document.createElement("tr");
+                    let td1 = document.createElement("td");
+                    let td2 = document.createElement("td");
+                    td1.innerHTML = "<button class='startChatLink' onclick='startChatLink(copyOfServerResponse[i])'>" + serverResponse[i].firstName + "</button>";
+                    td2.innerHTML = serverResponse[i].status;
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tablebody.appendChild(tr);
+                }
             }
             setTimeout(loadFriends, 5000);
         }
