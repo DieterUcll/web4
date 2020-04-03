@@ -48,6 +48,7 @@
 </main>
 <aside>
     <h3>Chat section</h3>
+    <input type="hidden" id="senderName" value="${sessionScope.user.firstName}">
     <h4>Chatting with: <span id="receiverName"></span></h4>
     <div id="chatMessages"></div>
     <p>
