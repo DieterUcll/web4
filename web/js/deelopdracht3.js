@@ -1,16 +1,18 @@
-
-    function startChatLink(name) {
-        // $receiver = document.getElementById("startChatLink").innerHTML;
-        // console.log("naam: " + document.getElementById("startChatLink").innerHTML);
-        console.log(name);
-    }
+function startChatWithFriend(friend) {
+    console.log(friend);
+    $("#receiverName").innerText = friend;
+}
 
 
-    // $("#startChatLink").click(function(){
-    //     $receiver = document.getElementById("startChatLink").value;
-    //     console.log("naam: " + document.getElementById("startChatLink").value);
-    //     // $.post("WeatherServlet", {cityName:$cityName}, function(data) {
-    //     //     var newParagraph = $('<p />').text(data);
-    //     //     $('#weatherReport').append(newParagraph);
-    //     // });
-    // });
+
+$(document).ready(function () {
+    $("#sendMessage").click(function () {
+
+        console.log("you send to :" + $("#receiverName").innerHTML + " -> " + $("#message").val());
+        // $.post("Controller?action=OneOnOneChat", {message: $message}, function (data) {
+        //     var newParagraph = $('<p />').text(data);
+        //     $('#chatMessages').append(newParagraph);
+        // });
+    });
+});
+

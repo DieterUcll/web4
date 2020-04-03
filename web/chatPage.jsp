@@ -46,7 +46,18 @@
         </p>
     </form>
 </main>
+<aside>
+    <h3>Chat section</h3>
+    <h4>Chatting with: <span id="receiverName"></span></h4>
+    <div id="chatMessages"></div>
+    <p>
+        <input type="text" id="message">
+    </p>
+    <p>
+        <input type="button" id="sendMessage" value="Send">
+    </p>
 
+</aside>
 <script src="js/jquery.js"></script>
 <script type="text/javascript" src="js/pollingScript.js"></script>
 <script type="text/javascript" src="js/deelopdracht3.js"></script>

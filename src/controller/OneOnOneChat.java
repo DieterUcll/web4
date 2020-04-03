@@ -3,6 +3,9 @@ package controller;
 
 import org.apache.coyote.Request;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -14,35 +17,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @ServerEndpoint("/sendMessage&&receiver=")
-public class OneOnOneChat {
-    private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
-    @OnOpen
-    public void onOpen(Session session){
-//        System.out.println(session.getId() + " has opened a connection");
-//        sendMessageToAll("User " + session.getId() + " has connected");
-        //            session.getBasicRemote().sendText("Connection Established");
-        sessions.add(session);
-    }
+public class OneOnOneChat extends RequestHandler {
 
-    @OnMessage
-    public void onMessage(String message, Session session){
-//        System.out.println("Message from " + session.getId() + ": " + message);
-        sendMessageToAll(message);
-    }
 
-    @OnClose
-    public void onClose(Session session){
-//        System.out.println("Chat " +session.getId()+" has ended");
-        sessions.remove(session);
-    }
+    @Override
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-    private void sendMessageToAll(String message){
-        for(Session s : sessions){
-            try {
-                s.getBasicRemote().sendText(message);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
     }
 }

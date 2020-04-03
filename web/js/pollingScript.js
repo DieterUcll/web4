@@ -47,7 +47,13 @@ function getFriends() {
                     let tr = document.createElement("tr");
                     let td1 = document.createElement("td");
                     let td2 = document.createElement("td");
-                    td1.innerHTML = "<button class='startChatLink' onclick='startChatLink(copyOfServerResponse[i])'>" + serverResponse[i].firstName + "</button>";
+
+                    let btnName = document.createElement('button');
+                    btnName.type = "submit";
+                    btnName.innerHTML = serverResponse[i].firstName;
+                    btnName.onclick = function() { startChatWithFriend(serverResponse[i].firstName); };
+                    td1.appendChild(btnName);
+
                     td2.innerHTML = serverResponse[i].status;
                     tr.appendChild(td1);
                     tr.appendChild(td2);
