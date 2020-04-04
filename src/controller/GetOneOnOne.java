@@ -20,10 +20,15 @@ public class GetOneOnOne extends RequestHandler {
 
 
         List<String> convos = sender.getConvos().get(getPersonService().getPerson(receiver));
+        System.out.println(receiver + "  is getting the convos list: " + convos);
+
         //bloop blap
         ObjectMapper mapper = new ObjectMapper();
         response.setContentType("application/json");
         //convert list en write to response
+        if(convos == null) {
+            throw new IllegalArgumentException("convos is nog leeg retry");
+        }
         String json = mapper.writeValueAsString(convos);
         response.getWriter().write(json);
     }

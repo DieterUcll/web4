@@ -1,5 +1,4 @@
 function startChatWithFriend(friend) {
-    alert(friend);
     console.log(friend);
     $("#receiverId").html(friend);
 
@@ -30,7 +29,10 @@ $(document).ready(function () {
     });
 });
 
+
 function getMessages() {
+    // console.log("im inside getmessages function");
+
     let $receiverId = $("#receiverId").text() ;
 
     $.ajax({
@@ -38,11 +40,13 @@ function getMessages() {
         url: "Controller?action=GetOneOnOne&receiver=" + $receiverId,
         dataType: "json",
         success: function(json){
-            $('#chatMessages').html(json.text);
-            setTimeout(getMessages, 3000);
+            console.log(json.text);
+            $('#chatMessages').text(json.text);
+            setTimeout(getMessages, 5000);
         },
         error: function() {
-            alert("could not load messages");
+            console.log("could not load messages");
+            setTimeout(getMessages, 5000);
         }
     });
 

@@ -50,9 +50,11 @@ function getFriends() {
 
                     let btnName = document.createElement('button');
                     btnName.type = "submit";
+                    btnName.id = "startChatBtn";
                     btnName.innerHTML = serverResponse[i].firstName;
                     btnName.onclick = function() {
                         startChatWithFriend(serverResponse[i].userId);
+                        getMessages();
                     };
                     td1.appendChild(btnName);
 
