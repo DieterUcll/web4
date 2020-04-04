@@ -1,9 +1,6 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -11,10 +8,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-@JsonIgnoreProperties({"userId", "password","salt","lastName","role", "friends"})
+@JsonIgnoreProperties({"password","salt","lastName","role", "friends"})
 public class Person {
 
 	private String userId;
@@ -25,6 +24,7 @@ public class Person {
 	private Role role;
 	private String Status;
 	private ArrayList<Person> friends;
+	private Map<Person, List<String>> convos = new HashMap<>();
 
 	public Person(String userId, String password, String firstName,
 			String lastName,Role role) {
@@ -175,5 +175,13 @@ public class Person {
 
 	public void setStatus(String status) {
 		Status = status;
+	}
+
+	public Map<Person, List<String>> getConvos() {
+		return convos;
+	}
+
+	public void setConvos(Map<Person, List<String>> convos) {
+		this.convos = convos;
 	}
 }

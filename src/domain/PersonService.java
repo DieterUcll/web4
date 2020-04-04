@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import db.PersonRepository;
@@ -37,5 +38,20 @@ public class PersonService {
 
 	private PersonRepository getPersonRepository() {
 		return personRepository;
+	}
+
+
+	public void addToConvos(Person sender, Person receiver, String message) {
+		List<String> messages = personRepository.get(sender.getUserId()).getConvos().get(receiver);
+
+		// if list does not exist create it
+		if(messages == null) {
+			messages = new ArrayList<String>();
+			messages.add(message);
+			sender.getConvos().put(receiver,messages);
+		} else {
+			// add if item is not already in list
+			messages.add(message);
+		}
 	}
 }

@@ -51,7 +51,9 @@ function getFriends() {
                     let btnName = document.createElement('button');
                     btnName.type = "submit";
                     btnName.innerHTML = serverResponse[i].firstName;
-                    btnName.onclick = function() { startChatWithFriend(serverResponse[i].firstName); };
+                    btnName.onclick = function() {
+                        startChatWithFriend(serverResponse[i].userId);
+                    };
                     td1.appendChild(btnName);
 
                     td2.innerHTML = serverResponse[i].status;
@@ -71,6 +73,6 @@ function addFriends() {
     console.log("id: " + friendId);
     changeStatusRequest.open("POST", "Controller?action=AddFriend&friendId=" + friendId, true);
     // changeStatusRequest.onreadystatechange = getData;
-    friendId = " ";
+    friendId.value = '';
     changeStatusRequest.send();
 }
