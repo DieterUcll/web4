@@ -51,6 +51,8 @@ public class LogIn extends RequestHandler {
 	private void createSession(Person person, HttpServletRequest request,
 			HttpServletResponse response) {
 		HttpSession session = request.getSession();
+
+		//update the persons status value to online
 		person.setStatus("Online");
 		session.setAttribute("user", person);
 		session.setAttribute("status", "Online");
