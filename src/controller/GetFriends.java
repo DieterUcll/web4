@@ -18,6 +18,10 @@ public class GetFriends extends RequestHandler {
         //Get current user from session and put his friends in an list
         Person p = (Person) request.getSession().getAttribute("user");
         List<Person> temp = new ArrayList<>(p.getFriends());
+        for (Person person: temp) {
+            System.out.println(person.getStatus());
+        }
+
 
         //bloop blap
         ObjectMapper mapper = new ObjectMapper();
