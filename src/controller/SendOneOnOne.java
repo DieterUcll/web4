@@ -17,8 +17,8 @@ public class SendOneOnOne extends RequestHandler {
 
 //        System.out.println(receiver + " " + sender + "  " + message);
 
-        getPersonService().addToConvos(getPersonService().getPerson(sender), getPersonService().getPerson(receiver), message);
-        getPersonService().addToConvos(getPersonService().getPerson(receiver), getPersonService().getPerson(sender), message);
+        getPersonService().addToConvos(getPersonService().getPerson(sender), getPersonService().getPerson(receiver), sender + "(you) : " + message);
+        getPersonService().addToConvos(getPersonService().getPerson(receiver), getPersonService().getPerson(sender), sender + ": " + message);
 
         System.out.println("sender values: " + getPersonService().getPerson(sender).getConvos().values());
         System.out.println("receiver values: " + getPersonService().getPerson(receiver).getConvos().values());

@@ -1,13 +1,13 @@
 //PUSH ASSIGNMENT
 window.onload = openSocket;
 var webSocket;
-var reactions = document.getElementById("reactions");
+var reactions;
 
-function openSocket() {
+    function openSocket() {
     webSocket = new WebSocket("ws://localhost:8081/reaction");
 
     webSocket.onopen = function (event) {
-        //writeResponse("Connection open");
+        writeResponse("Connection open");
     };
 
     webSocket.onmessage = function (event) {
@@ -15,19 +15,18 @@ function openSocket() {
     };
 
     webSocket.onclose = function (event) {
-        //writeResponse("connection closed");
+        writeResponse("connection closed");
     };
 }
 
-function send() {
+function send(numberOfPost) {
     //grab all data and send it to socket
-    var name = document.getElementById("nameInput").value;
-    var opinion = document.getElementById("opinionInput").value;
-    var rating = document.getElementById("ratingInput").value;
-    console.log(name + " thinks " + opinion + " gives it a " + rating);
-    webSocket.send(name + " thinks " + opinion + ", gives it a "+ rating + " out of 10");
-    // webSocket.send(opinion);
-    // webSocket.send(rating);
+    var name = document.getElementById("nameInput" +numberOfPost).value;
+    var opinion = document.getElementById("opinionInput" + numberOfPost).value;
+    var rating = document.getElementById("ratingInput" + numberOfPost).value;
+    // console.log(name + " thinks " + opinion + " gives it a " + rating);
+    webSocket.send(name + " thinks " + opinion + ", gives it a "+ rating + " out of 10" + "|" + numberOfPost);
+
 }
 
 function closeSocket() {
@@ -35,6 +34,9 @@ function closeSocket() {
 }
 
 
-function writeResponse(String) {
-    reactions.innerHTML += "<br> - "+String;
+function writeResponse(string) {
+    var message = string.split('|')[0];
+    var id = string.split('|')[1];
+
+    reactions = document.getElementById("reactions" + id).innerHTML  += "<br> - "+message;
 }

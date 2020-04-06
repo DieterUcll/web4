@@ -40,8 +40,8 @@ function getMessages() {
         url: "Controller?action=GetOneOnOne&receiver=" + $receiverId,
         dataType: "json",
         success: function(json){
-            console.log(json.text);
-            $('#chatMessages').text(json.text);
+            // console.log(JSON.parse(json));
+            $('#chatMessages').text(JSON.stringify(json));
             setTimeout(getMessages, 5000);
         },
         error: function() {

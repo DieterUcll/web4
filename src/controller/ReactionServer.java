@@ -16,10 +16,10 @@ public class ReactionServer {
     private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
 
     @OnOpen
-    public void onOpen(Session session){
+    public void onOpen(Session session) throws IOException {
 //        System.out.println(session.getId() + " has opened a connection");
 //        sendMessageToAll("User " + session.getId() + " has connected");
-        //            session.getBasicRemote().sendText("Connection Established");
+//        session.getBasicRemote().sendText("Connection Established");
         sessions.add(session);
     }
 
