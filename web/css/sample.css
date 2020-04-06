@@ -142,3 +142,17 @@ nav ul li a#actual {
 nav ul li#current {
 	border-bottom: 1px solid black;
 }
+
+#chatWindow {
+	max-height: 46%;
+	padding: 0 2em;
+	background-color: lightblue;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 35%;
+}
+
+#chatPop {
+	display: none;
+}

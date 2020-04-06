@@ -46,19 +46,20 @@
         </p>
     </form>
 </main>
-<aside>
-    <h3>Chat section</h3>
-    <input type="hidden" id="senderId" value="${sessionScope.user.userId}">
-    <h4>Chatting with: <span id="receiverId"></span></h4>
-    <div id="chatMessages"></div>
-    <p>
-        <input type="text" id="message">
-    </p>
-    <p>
-        <input type="button" id="sendMessage" value="Send">
-    </p>
+<div id="chatWindow">
+    <h3 id="cycleChatWindow">Chat section</h3>
+    <div id="chatPop">
+        <input type="hidden" id="senderId" value="${sessionScope.user.userId}">
+        <h4>Chatting with: <span id="receiverId"></span></h4>
+        <div id="chatMessages" style="overflow-y:scroll;max-height: 7em"></div>
+        <p>
+            <input type="text" id="message">
+            <input type="button" id="sendMessage" value="Send">
+        </p>
+    </div>
 
-</aside>
+
+</div>
 <script src="js/jquery.js"></script>
 <script type="text/javascript" src="js/pollingScript.js"></script>
 <script type="text/javascript" src="js/deelopdracht3.js"></script>

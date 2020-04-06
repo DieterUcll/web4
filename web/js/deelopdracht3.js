@@ -2,6 +2,7 @@ function startChatWithFriend(friend) {
     console.log(friend);
     $("#receiverId").html(friend);
     $("#chatMessages").empty();
+    $("#chatPop").css("display", "block");
 }
 
 
@@ -63,3 +64,16 @@ function getMessages() {
 
 }
 
+//collapse of chat
+$(document).ready(function () {
+    $("#cycleChatWindow").click(function () {
+        console.log("clicked the chat pop");
+        let $Pop = $("#chatPop");
+        if($Pop == null || $Pop.css("display") === "none") {
+            $Pop.css("display", "block");
+        } else {
+            $Pop.css("display", "none");
+        }
+
+    });
+});
