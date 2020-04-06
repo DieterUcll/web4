@@ -1,7 +1,7 @@
 function startChatWithFriend(friend) {
     console.log(friend);
     $("#receiverId").html(friend);
-
+    $("#chatMessages").empty();
 }
 
 
@@ -11,6 +11,7 @@ $(document).ready(function () {
         let $senderId = $("#senderId").val();
         let $receiverId = $("#receiverId").text() ;
         let $message = $("#message").val();
+
         // console.log($senderId + "(you) send to :" + $receiverId + " -> " + $message);
 
         $.ajax({
@@ -26,6 +27,8 @@ $(document).ready(function () {
                 console.log("could not process messages");
             }
         });
+        //to clear input field after submit
+        $("#message").val('')
     });
 });
 
@@ -41,7 +44,15 @@ function getMessages() {
         dataType: "json",
         success: function(json){
             // console.log(JSON.parse(json));
-            $('#chatMessages').text(JSON.stringify(json));
+            $("#chatMessages").empty();
+            for(var i = 0; i < json.length; i++) {
+                var text = json[i];
+
+                // console.log(text);
+                let newParagraph = $('<p />').text(text);
+                $('#chatMessages').append(newParagraph);
+            }
+
             setTimeout(getMessages, 5000);
         },
         error: function() {
