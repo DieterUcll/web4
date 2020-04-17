@@ -77,3 +77,18 @@ $(document).ready(function () {
 
     });
 });
+
+
+
+$(document).ready(function () {
+    $("#changeColorBtn").click(function () {
+        let $colorCode = $("#color").val();
+        console.log($colorCode);
+
+
+        $.post("Controller?action=ChangeBackground", {colorCode : $colorCode}, function( data ) {
+            console.log("data:"+ data)
+            $("body").css("background-color", data);
+        });
+    });
+});

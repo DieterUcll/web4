@@ -14,6 +14,12 @@
 </jsp:include>
 
 <main>
+    <p>
+        <input type="color" name="color" id="color">
+        <input type="button" id="changeColorBtn" value="change color">
+
+    </p>
+
     <div>Status:<span id="currentStatus"></span></div>
 
     <form method="post">
