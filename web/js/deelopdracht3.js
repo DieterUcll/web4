@@ -1,3 +1,6 @@
+
+window.onload = getBackgroundColor();
+
 function startChatWithFriend(friend) {
     console.log(friend);
     $("#receiverId").html(friend);
@@ -92,3 +95,9 @@ $(document).ready(function () {
         });
     });
 });
+
+function getBackgroundColor() {
+    $.get("Controller?action=getBackground", function( data ) {
+        $("body").css("background-color", data);
+    });
+}

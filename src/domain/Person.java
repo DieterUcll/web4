@@ -26,6 +26,8 @@ public class Person {
 	private ArrayList<Person> friends;
 	private Map<Person, List<String>> convos = new HashMap<>();
 
+	private String backgroundColor;
+
 	public Person(String userId, String password, String firstName,
 			String lastName,Role role) {
 		setUserId(userId);
@@ -184,4 +186,13 @@ public class Person {
 	public void setConvos(Map<Person, List<String>> convos) {
 		this.convos = convos;
 	}
+
+	public String getBackgroundColor() {
+		return backgroundColor;
+	}
+
+	public void setBackgroundColor(String backgroundColor) {
+		this.backgroundColor = backgroundColor;
+	}
+
 }
