@@ -1,7 +1,11 @@
 //PULL ASSIGNMENT
 
-window.onload = loadFriends;
-document.getElementById("currentStatus").innerHTML = "Online";
+//CODE FUCKER \/
+// window.onload = loadFriends;
+
+// document.getElementById("currentStatus").innerHTML = "Online";
+
+var getStatusRequest = new XMLHttpRequest();
 var changeStatusRequest = new XMLHttpRequest();
 var getFriendsRequest = new XMLHttpRequest();
 var addFriendsRequest = new XMLHttpRequest();
@@ -9,23 +13,30 @@ var addFriendsRequest = new XMLHttpRequest();
 // global shit i need
 var copyOfServerResponse = null;
 
-function changeStatus() {
-    let statusParam = document.getElementById("statusInput").value;
-    changeStatusRequest.open("POST", "Controller?action=ChangeStatus&status=" + statusParam, true);
-    changeStatusRequest.onreadystatechange = getData;
-    changeStatusRequest.send();
 
+function getStatus() {
+    getStatusRequest.open("GET", "Controller?action=GetStatus", true);
+    getStatusRequest.onreadystatechange = getDataStatus;
+    getStatusRequest.send(null);
 }
 
-function getData() {
-    if (changeStatusRequest.status === 200) {
-        if (changeStatusRequest.readyState === 4) {
-            let serverResponse = changeStatusRequest.responseText;
-            document.getElementById("currentStatus").innerHTML = serverResponse;
+function getDataStatus() {
+    if (getStatusRequest.status === 200) {
+        if (getStatusRequest.readyState === 4) {
+            document.getElementById("currentStatus").innerHTML = getStatusRequest.responseText;
             document.getElementById("statusInput").value = " "
         }
     }
 }
+
+
+function changeStatus() {
+    let statusParam = document.getElementById("statusInput").value;
+    changeStatusRequest.open("POST", "Controller?action=ChangeStatus&status=" + statusParam, true);
+    changeStatusRequest.send();
+    getStatus();
+}
+
 
 function loadFriends() {
     getFriendsRequest.open("GET", "Controller?action=GetFriends", true);
@@ -73,8 +84,8 @@ function addFriends() {
     let friendId = document.getElementById("friendId").value;
 
     console.log("id: " + friendId);
-    changeStatusRequest.open("POST", "Controller?action=AddFriend&friendId=" + friendId, true);
-    // changeStatusRequest.onreadystatechange = getData;
+    addFriendsRequest.open("POST", "Controller?action=AddFriend&friendId=" + friendId, true);
+    // changeStatusRequest.onreadystatechange;
     friendId.value = '';
-    changeStatusRequest.send();
+    addFriendsRequest.send();
 }
