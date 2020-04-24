@@ -2,8 +2,13 @@
 
 //CODE FUCKER \/
 // window.onload = loadFriends;
-
+window.addEventListener("load", startup,false)
 // document.getElementById("currentStatus").innerHTML = "Online";
+
+function startup() {
+    getStatus();
+    loadFriends();
+}
 
 var getStatusRequest = new XMLHttpRequest();
 var changeStatusRequest = new XMLHttpRequest();
