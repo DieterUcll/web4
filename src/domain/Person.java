@@ -22,6 +22,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private Role role;
+	private String gender;
 	private String Status;
 	private ArrayList<Person> friends;
 	private Map<Person, List<String>> convos = new HashMap<>();
@@ -193,6 +194,14 @@ public class Person {
 
 	public void setBackgroundColor(String backgroundColor) {
 		this.backgroundColor = backgroundColor;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }
