@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-@JsonIgnoreProperties({"password","salt","lastName","role", "friends"})
+@JsonIgnoreProperties({"password","salt","role", "friends"})
 public class Person {
 
 	private String userId;
@@ -23,7 +23,7 @@ public class Person {
 	private String lastName;
 	private Role role;
 	private String gender;
-	private String Status;
+	private String status;
 	private ArrayList<Person> friends;
 	private Map<Person, List<String>> convos = new HashMap<>();
 
@@ -173,11 +173,11 @@ public class Person {
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 
 	public Map<Person, List<String>> getConvos() {
