@@ -12,8 +12,8 @@ public class RegisterUser extends RequestHandler {
     @Override
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userId = request.getParameter("email");
-        String firstname = request.getParameter("lastname");
-        String lastname = request.getParameter("firstname");
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
         String gender = request.getParameter("gender");
         String password = request.getParameter("password");
         String repassword = request.getParameter("repassword");
