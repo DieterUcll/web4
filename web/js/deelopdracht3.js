@@ -32,7 +32,7 @@ $(document).ready(function () {
             }
         });
         //to clear input field after submit
-        $("#message").val('')
+        $("#message").val('');
     });
 });
 
@@ -90,7 +90,7 @@ $(document).ready(function () {
 
 
         $.post("Controller?action=ChangeBackground", {colorCode : $colorCode}, function( data ) {
-            console.log("data:"+ data)
+            console.log("data:"+ data);
             $("body").css("background-color", data);
         });
     });

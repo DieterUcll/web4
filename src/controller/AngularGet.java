@@ -10,15 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Angular extends RequestHandler {
+public class AngularGet extends RequestHandler {
     @Override
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        // fake json (should be replaced by making json of current status of stub or db)
-        // { \"id\": 3, \"name\": \"Greetje Jongen\" }
-//        String users = "[" +
-//                "{ \"firstName\": \"Rudi\", \"lastName\": \"Swennen\", \"userId\": \"ruddy.swennen@ucll.be\", \"status\": \"offline\"}, "+
-//                "{ \"firstName\": \"Elke\", \"lastName\": \"Steegmans\", \"userId\": \"elke.steegman@ucll.be\", \"status\": \"offline\"}" +
-//                "]";
 
 
         List<Person> temp = new ArrayList<>(getPersonService().getPersons());
