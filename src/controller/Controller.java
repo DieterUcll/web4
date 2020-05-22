@@ -37,7 +37,7 @@ public class Controller extends HttpServlet {
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		RequestHandler handler = factory.getHandler(service, request,response);
-
+		setAccessControlHeaders(response);
 		handler.setModel(service);
 		try {
 			handler.handleRequest(request, response);
@@ -47,5 +47,21 @@ public class Controller extends HttpServlet {
 		}
 
 	}
+
+	//Fix for cors
+	@Override
+	protected void doOptions(HttpServletRequest req, HttpServletResponse resp) {
+		setAccessControlHeaders(resp);
+		resp.setStatus(HttpServletResponse.SC_OK);
+	}
+
+	private void setAccessControlHeaders(HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+		response.setHeader("Access-Control-Allow-Credentials", "True");
+		response.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,PUT,DELETE,OPTIONS");
+		response.setHeader("Access-Control-Max-Age", "3600");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with, content-type");
+	}
+
 
 }

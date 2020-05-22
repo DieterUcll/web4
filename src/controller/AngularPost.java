@@ -25,7 +25,7 @@ public class AngularPost extends RequestHandler{
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(simpleModule);
         Person person = objectMapper.readValue(request.getInputStream(), Person.class);
-        System.out.println(person.getFirstName() + " " + person.getLastName() + " " + person.getUserId() + person.getStatus());
+        System.out.println(person.getFirstName() + " " + person.getLastName() + " " + person.getUserId() + person.getGender());
 
     }
 }
