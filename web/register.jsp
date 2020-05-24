@@ -31,6 +31,10 @@
                 <input type="text" id="gender" name="gender" value="unknown">
             </p>
             <p>
+                <label for="age">Your Age </label>
+                <input type="number" id="age" name="age" value="30">
+            </p>
+            <p>
                 <label for="password">Your password</label>
                 <input type="password" id="password" name="password" value="t">
             </p>

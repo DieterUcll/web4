@@ -17,10 +17,12 @@ public class RegisterUser extends RequestHandler {
         String gender = request.getParameter("gender");
         String password = request.getParameter("password");
         String repassword = request.getParameter("repassword");
+        int age = Integer.parseInt(request.getParameter("age"));
 
         if(password.equals(repassword)) {
             Person p = new Person(userId, password, firstname,lastname, Role.LID);
             p.setGender(gender);
+            p.setAge(age);
             getPersonService().addPerson(p);
         } else {
             throw new IllegalArgumentException("Password not okey buddy, not matching");
