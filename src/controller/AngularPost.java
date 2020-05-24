@@ -27,6 +27,7 @@ public class AngularPost extends RequestHandler{
         Person person = objectMapper.readValue(request.getInputStream(), Person.class);
         System.out.println(person.getFirstName() + " " + person.getLastName() + " " + person.getUserId() + person.getGender());
 
+
     }
 }
 
