@@ -16,8 +16,6 @@ import java.util.List;
 public class AngularPost extends RequestHandler{
     @Override
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-
 
         //ontvangen van data uit angular app
         SimpleModule simpleModule = new SimpleModule();
@@ -31,11 +29,11 @@ public class AngularPost extends RequestHandler{
     }
 }
 
+//Has to be here according to forum
 class YourClassKeyDeserializer extends KeyDeserializer
 {
     @Override
-    public Object deserializeKey(final String key, final DeserializationContext ctxt ) throws IOException, JsonProcessingException
-    {
-        return null; // replace null with your logic
+    public Object deserializeKey(final String key, final DeserializationContext ctxt ) throws IOException, JsonProcessingException {
+        return null;
     }
 }
